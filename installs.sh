@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Comment if you dont want upgrade, as this script is made to install from fresh image!
 sudo apt-get update
+# Comment if you dont want upgrade, as this script is made to install from fresh image!
 sudo apt-get upgrade -y
 # Im serious... comment if you arent on a fresh image!!!1
 sudo apt-get dist-upgrade -y
@@ -21,10 +21,10 @@ wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add
 sudo apt-get install apt-transport-https
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 sudo apt-get update
-sudo apt-get install sublime-text
+sudo apt-get install sublime-text -y
 
 # Install - Terminator and Terminal settings
-sudo apt-get install terminator
+sudo apt-get install terminator -y
 cp .bashrc ~/.bashrc
 cp .profile ~/.profile
 # root bashrc so su will look nice ;)
@@ -36,6 +36,14 @@ cd /opt;tar xvf ff.tar.bz2
 echo -e "[Desktop Entry]\nName=Firefox Stable\nComment=Web Browser\nExec=/opt/firefox/firefox %u\nTerminal=false\nType=Application\nIcon=/opt/firefox/browser/chrome/icons/default/default128.png\nCategories=Network;WebBrowser;\nMimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/vnd.mozilla.xul+xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;\nStartupNotify=true"| sudo tee /usr/share/applications/firefox-stable.desktop
 sudo ln -s /opt/firefox/firefox /usr/local/bin/firefox
 sudo update-alternatives --install /usr/bin/x-www-browser x-www-browser /opt/firefox/firefox 200 && sudo update-alternatives --set x-www-browser /opt/firefox/firefox 
+
+# Install - seclists and symlinks to opt
+sudo apt-get install seclists -y
+ln -s /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt /opt/wordlist-web-directories.txt
+ln -s /usr/share/seclists/Discovery/Web-Content/common.txt /opt/wordlist-web-top.txt
+ln -s /usr/share/seclists/Usernames/top-usernames-shortlist.txt /opt/wordlist-users-top.txt
+ln -s /usr/share/seclists/Usernames/Names/names.txt /opt/wordlist-users-names.txt
+if [[ -f /usr/share/wordlists/rockyou.txt.gz ]];then gzip -d /usr/share/wordlists/rockyou.txt.gz;ln -s /usr/share/wordlists/rockyou.txt /opt/rockyou.txt;fi
 
 # Update - Pip3 modules checker (and show updates available)
 sudo python3 -m pip install pip --upgrade
