@@ -130,7 +130,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
-## More of my additions 
-alias lt='ls -lat'
-PATH=$PATH:/opt/rustbuster
-PATH=$PATH:$HOME/.local/bin
+## Sorted ls alias 
+alias lat='ls -lat'
+# Golang path
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin:/usr/local/go/bin"
+# Rustbuster path
+export PATH="$PATH:/opt/rustbuster:$HOME/.local/bin"
+# Rust path
+export PATH="$HOME/.cargo/bin:$PATH"
+
