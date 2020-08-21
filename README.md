@@ -2,11 +2,18 @@
 
 Used to keep my distro settings in sync across devices.
 
-*Uses GitLab kali experimental additions*
+## Disclaimers
+
+* Due to kali's favourable change to user level default, the installer may do things twice upon the user level and root level.
+* The bashrc may introduce some unwanted (wanted for myself) GitLab kali experimental additions
+
+## Contents
 
 * **README.md** - Manual instructions and resource links
 
 * **installs.sh** - Auto setup most things (hopefully)
+
+## Look and feel
 
 * TTY layout files (.profile and .bashrc) looks like:
 
