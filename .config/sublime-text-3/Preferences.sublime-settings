@@ -1,0 +1,10 @@
+// Settings in here override those in "Default/Preferences.sublime-settings",
+// and are overridden in turn by syntax-specific settings.
+{
+	"highlight_line": true,
+	"draw_white_space": "selection",
+	"indent_guide_options": ["draw_active"],
+	"auto_find_in_selection": true,
+	"show_encoding": true,
+	"show_line_endings": true,
+}

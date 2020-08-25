@@ -97,15 +97,25 @@ cp .profile ~/.profile
 # root bashrc so su - will mirror the nice looks ;)
 sudo cp .bashrc /root/.bashrc
 
+# Sublime Text 3 settings copy
+cp .config/sublime-text-3/Preferences.sublime-settings ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
+
 ### Updates section (trigger display of updates for applicable stuff here)
 sudo pip-check -H
 
 ###########################
 
 # END
-echo -e "\n\nAll done!"
-echo "Added commands:"
+echo -e "\n\n"
+echo "========================"
+echo "All done!"
+echo "========================"
+echo "Added aliases:"
 echo "exaa - 'exa' alias to show all sorted by date"
 echo "exar - 'exa' alias to list all recursive directories - CAN BE VERY VERBOSE"
-echo "lt - 'ls' alias to show all sorted by date (order matches exa)"
+echo "lat - 'ls' alias to show all sorted by date (order matches exa)"
+echo "========================"
+echo "Breaking Changes:"
+echo "'sudoedit <file>' will now use sublime text 3!"
+echo "========================"
 #todo more

@@ -130,7 +130,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-## Sorted ls alias 
+## Sorted ls alias
 alias lat='ls -latr'
 
 ## Exa aliases
@@ -144,3 +144,6 @@ export PATH="$PATH:$GOPATH/bin:/usr/local/go/bin"
 export PATH="$PATH:/opt/rustbuster:$HOME/.local/bin"
 # Rust path
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# Set system defaults
+export SUDO_EDITOR="/opt/sublime_text/sublime_text -w"
