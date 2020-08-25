@@ -1,4 +1,8 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
+# Hardcoded versions that will require testing for upgrades in the future
+NEOFETCH="https://github.com/dylanaraps/neofetch/archive/7.1.0.zip"
+
 
 #########################
 ######### START #########
@@ -7,10 +11,11 @@
 sudo apt-get update
 # Comment if you dont want upgrade, as this script is made to install from fresh image!
 sudo apt-get upgrade -y
-# Im serious... comment if you arent on a fresh image!!!1
-sudo apt-get dist-upgrade -y
 sudo apt-get autoremove
 sudo apt-get autoclean
+sudo apt-get clean
+# Im serious... comment if you arent on an unedited image!!!1
+sudo apt-get dist-upgrade -y
 
 # Set /opt to group kali
 sudo chown -R root:kali /opt
@@ -34,13 +39,28 @@ sudo apt-get install sublime-text -y
 # Install - Terminator and Terminal settings (command: "terminator")
 sudo apt-get install terminator -y
 
-# Install - Rust(up) and Cargo on user and root
+# Install - Rust(up) and Cargo on user AND root
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source $HOME/.cargo/env
 sudo sh -l -c "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+sudo sh -l -c ". \$HOME/.cargo/env" # set path of root whilst user
 
-# Install - "exa" (a rust replacement for ls)
+# Install - "exa" (a Rust replacement for ls)
 cargo install exa
 sudo sh -l -c "cargo install exa"
+
+# Install - "Rustscan" (a fast port scan wrapper for nmap)
+cargo install rustscan
+sudo sh -l -c "cargo install rustscan"
+
+# Install - "Rustbuster" (replacement for gobuster and dirbuster that supports more features than both)
+echo "Installing latest version of Rustbuster from Github"
+latest_version=`curl -s https://github.com/phra/rustbuster/releases | grep "rustbuster-v" | head -n1 | cut -d'/' -f6`
+echo "Latest release: $latest_version"
+mkdir -p /opt/rustbuster
+wget -qP /opt/rustbuster https://github.com/phra/rustbuster/releases/download/$latest_version/rustbuster-$latest_version-x86_64-unknown-linux-gnu
+ln -fs /opt/rustbuster/rustbuster-$latest_version-x86_64-unknown-linux-gnu /opt/rustbuster/rustbuster
+sudo chmod +x /opt/rustbuster/rustbuster
 
 # Install - Golang
 #todo
@@ -64,6 +84,9 @@ if [[ -f /usr/share/wordlists/rockyou.txt.gz ]];then gzip -d /usr/share/wordlist
 sudo python3 -m pip install pip --upgrade
 sudo python3 -m pip install pip-check
 
+# Install - Rot13 and Caesar tools
+sudo apt-get install bsdgames -y
+
 #########################
 ####### CONFIGURE #######
 #########################
@@ -83,5 +106,6 @@ sudo pip-check -H
 echo -e "\n\nAll done!"
 echo "Added commands:"
 echo "exaa - 'exa' alias to show all sorted by date"
-echo "lt - 'ls' alias to show all sorted inverse by date"
+echo "exar - 'exa' alias to list all recursive directories - CAN BE VERY VERBOSE"
+echo "lt - 'ls' alias to show all sorted by date (order matches exa)"
 #todo more

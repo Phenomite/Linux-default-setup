@@ -131,7 +131,12 @@ if ! shopt -oq posix; then
 fi
 
 ## Sorted ls alias 
-alias lat='ls -lat'
+alias lat='ls -latr'
+
+## Exa aliases
+alias exaa='exa -laghsdate'
+alias exar='exa -laghRsdate' # WARNING - could be big
+
 # Golang path
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin:/usr/local/go/bin"
@@ -139,4 +144,3 @@ export PATH="$PATH:$GOPATH/bin:/usr/local/go/bin"
 export PATH="$PATH:/opt/rustbuster:$HOME/.local/bin"
 # Rust path
 export PATH="$HOME/.cargo/bin:$PATH"
-
