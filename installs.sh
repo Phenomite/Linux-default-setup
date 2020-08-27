@@ -99,6 +99,7 @@ sudo cp .bashrc /root/.bashrc
 
 # Sublime Text 3 settings copy
 cp .config/sublime-text-3/Preferences.sublime-settings ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
+cp .config/terminator/config ~/.config/terminator/config
 
 ### Updates section (trigger display of updates for applicable stuff here)
 sudo pip-check -H
@@ -116,6 +117,6 @@ echo "exar - 'exa' alias to list all recursive directories - CAN BE VERY VERBOSE
 echo "lat - 'ls' alias to show all sorted by date (order matches exa)"
 echo "========================"
 echo "Breaking Changes:"
-echo "'sudoedit <file>' will now use sublime text 3!"
+echo "'sudoedit <file>' will now use sublime text 3 !"
 echo "========================"
 #todo more

@@ -1,0 +1,18 @@
+[global_config]
+  inactive_color_offset = 1.0
+[keybindings]
+[profiles]
+  [[default]]
+    background_color = "#300a24"
+    cursor_color = "#aaaaaa"
+    foreground_color = "#ffffff"
+    scrollback_lines = 10000
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]
