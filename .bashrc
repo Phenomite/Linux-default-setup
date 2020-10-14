@@ -147,3 +147,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # Set system defaults
 export SUDO_EDITOR="/opt/sublime_text/sublime_text -w"
+
+# PEzor path deps
+export PATH="$PATH:/opt/evasion/PEzor:/opt/evasion/PEzor/deps/donut_v0.9.3/:/opt/evasion/PEzor/deps/wclang/_prefix_PEzor_/bin/"

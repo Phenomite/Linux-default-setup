@@ -21,6 +21,24 @@ sudo apt-get dist-upgrade -y
 sudo chown -R root:kali /opt
 sudo chmod -R g+w /opt
 
+#########################
+####### CONFIGURE #######
+#########################
+
+# Set up profile and bashrc last to ensure overwriting automated installer additions
+cp .bashrc ~/.bashrc
+cp .profile ~/.profile
+# root bashrc so su - will mirror the nice looks ;)
+sudo cp .bashrc /root/.bashrc
+
+# Sublime Text 3 settings copy
+cp .config/sublime-text-3/Preferences.sublime-settings ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
+cp .config/terminator/config ~/.config/terminator/config
+
+# Source the configs so we can use the commands such as go in this script
+# I think this works..
+source ~/.bashrc
+
 ##########################
 ####### INSTALLERS #######
 ##########################
@@ -87,26 +105,23 @@ sudo python3 -m pip install pip-check
 # Install - Rot13 and Caesar tools
 sudo apt-get install bsdgames -y
 
+# Install - PEzor
+sudo apt-get install libcapstone-dev
+mkdir -p /opt/evasion/PEzor
+git clone https://github.com/phra/PEzor /opt/evasion/PEzor
+sudo bash /opt/evasion/PEzor/install.sh
+go get github.com/egebalci/sgn
+
 #########################
-####### CONFIGURE #######
+######## UPDATES ########
 #########################
-
-# Set up profile and bashrc last to ensure overwriting automated installer additions
-cp .bashrc ~/.bashrc
-cp .profile ~/.profile
-# root bashrc so su - will mirror the nice looks ;)
-sudo cp .bashrc /root/.bashrc
-
-# Sublime Text 3 settings copy
-cp .config/sublime-text-3/Preferences.sublime-settings ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
-cp .config/terminator/config ~/.config/terminator/config
-
-### Updates section (trigger display of updates for applicable stuff here)
 sudo pip-check -H
 
-###########################
 
-# END
+########################
+######## FINISH ########
+########################
+
 echo -e "\n\n"
 echo "========================"
 echo "All done!"
