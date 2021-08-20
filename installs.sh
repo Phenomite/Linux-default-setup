@@ -68,8 +68,8 @@ cargo install exa
 sudo sh -l -c "cargo install exa"
 
 # Install - "Rustscan" (a fast port scan wrapper for nmap)
-cargo install rustscan
-sudo sh -l -c "cargo install rustscan"
+#cargo install rustscan
+#sudo sh -l -c "cargo install rustscan"
 
 # Install - "Rustbuster" (replacement for gobuster and dirbuster that supports more features than both)
 echo "Installing latest version of Rustbuster from Github"
