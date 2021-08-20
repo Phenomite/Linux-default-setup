@@ -150,3 +150,6 @@ export SUDO_EDITOR="/opt/sublime_text/sublime_text -w"
 
 # PEzor path deps
 export PATH="$PATH:/opt/evasion/PEzor:/opt/evasion/PEzor/deps/donut_v0.9.3/:/opt/evasion/PEzor/deps/wclang/_prefix_PEzor_/bin/"
+
+# Rustscan docker alias - easier than cargo crap
+alias rustscan='sudo docker run -it --rm --name rustscan rustscan/rustscan:latest'
